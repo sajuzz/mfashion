@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+
+# Prevent specific aggressive scrapers
+User-agent: HTTrack
+Disallow: /
+
+User-agent: python-requests
+Disallow: /
+
+User-agent: scrapy
+Disallow: /
+
+User-agent: wget
+Disallow: /
+
+User-agent: curl
+Disallow: /

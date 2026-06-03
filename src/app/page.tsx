@@ -1,4 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
+import { useEffect, useState } from "react";
+
 export default function Home() {
   const portfolioImages = [
     { id: 1, type: "saree", url: "/images/kerala_saree_1780470333697.png", alt: "Kerala Traditional Saree & Bridal Work" },
@@ -15,20 +17,35 @@ export default function Home() {
     { id: 3, name: "Michael C.", text: "Excellent craftsmanship. The fabric selection for bespoke shirts is incredible. Highly recommended.", stars: 5 }
   ];
 
-  const phoneNumber = "+919562232408";
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=Hi,%20I%20would%20like%20to%20enquire%20about%20tailoring%20services.`;
+  // Base64 encoded phone number to prevent simple scraping
+  // Original: +919562232408
+  const encodedPhone = "KzkxOTU2MjIzMjQwOA==";
+  const [contactLinks, setContactLinks] = useState({ call: "#", wa: "#" });
+
+  useEffect(() => {
+    // Decode only on the client side so the raw number is never in the HTML source
+    try {
+      const decodedPhone = atob(encodedPhone);
+      setContactLinks({
+        call: `tel:${decodedPhone}`,
+        wa: `https://wa.me/${decodedPhone}?text=Hi,%20I%20would%20like%20to%20enquire%20about%20tailoring%20services.`
+      });
+    } catch (e) {
+      console.error("Failed to decode contact info");
+    }
+  }, []);
 
   return (
     <main className="main-content">
       
       {/* Floating Action Buttons */}
       <div className="floating-actions">
-        <a href={`tel:${phoneNumber}`} className="float-btn call-float" aria-label="Call Now">
+        <a href={contactLinks.call} className="float-btn call-float" aria-label="Call Now">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
         </a>
-        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="float-btn wa-float" aria-label="WhatsApp Us">
+        <a href={contactLinks.wa} target="_blank" rel="noopener noreferrer" className="float-btn wa-float" aria-label="WhatsApp Us">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.13.551 4.135 1.517 5.908L.15 24l6.196-1.624c1.725.88 3.663 1.344 5.685 1.344 6.645 0 12.03-5.385 12.03-12.03C24.062 5.385 18.676 0 12.031 0zm0 21.84c-1.803 0-3.517-.468-5.06-1.35l-3.626.952.966-3.535A9.972 9.972 0 0 1 2.158 12.03c0-5.46 4.413-9.873 9.873-9.873s9.873 4.413 9.873 9.873-4.413 9.873-9.873 9.873zm5.405-7.397c-.297-.15-1.758-.868-2.03-.968-.271-.101-.47-.15-.668.15-.198.3-.767.967-.94 1.168-.174.2-.347.225-.644.075-1.956-.995-3.34-2.585-3.921-3.606-.174-.3 0-.462.15-.61.134-.135.297-.348.446-.523.149-.174.198-.3.297-.5.1-.2.05-.375-.025-.525-.075-.15-.668-1.61-.916-2.203-.242-.581-.487-.502-.668-.512-.174-.01-.373-.01-.571-.01-.198 0-.52.075-.793.375-.272.3-1.04 1.018-1.04 2.48s1.065 2.875 1.213 3.075c.15.2 2.096 3.197 5.077 4.484 1.956.845 2.766.728 3.261.624.577-.12 1.758-.718 2.006-1.41.248-.693.248-1.288.174-1.41-.074-.122-.272-.198-.57-.348z" />
           </svg>
@@ -43,11 +60,11 @@ export default function Home() {
           <p className="hero-subtitle">Master tailors crafting custom garments and providing expert alterations to elevate your personal style.</p>
           
           <div className="hero-buttons-grid">
-            <a href={`tel:${phoneNumber}`} className="hero-btn hero-call">
+            <a href={contactLinks.call} className="hero-btn hero-call">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               Call Now
             </a>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="hero-btn hero-wa">
+            <a href={contactLinks.wa} target="_blank" rel="noopener noreferrer" className="hero-btn hero-wa">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.13.551 4.135 1.517 5.908L.15 24l6.196-1.624c1.725.88 3.663 1.344 5.685 1.344 6.645 0 12.03-5.385 12.03-12.03C24.062 5.385 18.676 0 12.031 0zm0 21.84c-1.803 0-3.517-.468-5.06-1.35l-3.626.952.966-3.535A9.972 9.972 0 0 1 2.158 12.03c0-5.46 4.413-9.873 9.873-9.873s9.873 4.413 9.873 9.873-4.413 9.873-9.873 9.873z"/></svg>
               WhatsApp
             </a>
