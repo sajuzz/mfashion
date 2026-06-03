@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 export default function Home() {
   const portfolioImages = [
-    { id: 1, type: "stitching", url: "https://images.unsplash.com/photo-1598532213005-598dc96a5814?auto=format&fit=crop&q=80&w=800", alt: "Close up of custom stitching" },
-    { id: 2, type: "alteration", url: "https://images.unsplash.com/photo-1584288002575-3b7c897f1f93?auto=format&fit=crop&q=80&w=800", alt: "Tailored suit alteration" },
-    { id: 3, type: "fabric", url: "https://images.unsplash.com/photo-1558024286-6abdf6480b55?auto=format&fit=crop&q=80&w=800", alt: "Premium wool fabric selection" },
-    { id: 4, type: "fitting", url: "https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=800", alt: "Client fitting session" },
-    { id: 5, type: "details", url: "https://images.unsplash.com/photo-1551806235-a05ff3f707f1?auto=format&fit=crop&q=80&w=800", alt: "Button and hem details" },
-    { id: 6, type: "fabric", url: "https://images.unsplash.com/photo-1579227114347-15d08fc37cae?auto=format&fit=crop&q=80&w=800", alt: "Silk fabric rolls" }
+    { id: 1, type: "saree", url: "/images/kerala_saree_1780470333697.png", alt: "Kerala Traditional Saree & Bridal Work" },
+    { id: 2, type: "embroidery", url: "/images/aari_embroidery_1780470351547.png", alt: "Aari & Mirror Embroidery" },
+    { id: 3, type: "mural", url: "/images/mural_painting_1780470368848.png", alt: "Fabric & Mural Painting" },
+    { id: 4, type: "bridal", url: "/images/christian_bridal_1780470387460.png", alt: "Christian Wedding Gown" },
+    { id: 5, type: "school", url: "/images/school_uniform_1780470403891.png", alt: "School Uniform Tailoring" },
+    { id: 6, type: "churidar", url: "/images/churidar_1780470420463.png", alt: "Churidar & Salvar Kameez" }
   ];
 
   const reviews = [
@@ -96,29 +96,29 @@ export default function Home() {
         </div>
         <div className="pricing-container">
           <div className="pricing-column">
-            <h3>Custom Tailoring</h3>
+            <h3>Traditional & Bridal</h3>
             <ul className="pricing-list">
-              <li><span>Two-Piece Suit</span> <span className="price">from $899</span></li>
-              <li><span>Three-Piece Suit</span> <span className="price">from $1,099</span></li>
-              <li><span>Bespoke Shirt</span> <span className="price">from $150</span></li>
-              <li><span>Overcoat</span> <span className="price">from $750</span></li>
+              <li><span>Kerala Traditional Saree</span> <span className="price">Contact Us</span></li>
+              <li><span>Christian Bridal Dress</span> <span className="price">Contact Us</span></li>
+              <li><span>Salvar & Churidar</span> <span className="price">Contact Us</span></li>
+              <li><span>Custom Designer Blouse</span> <span className="price">Contact Us</span></li>
             </ul>
           </div>
           <div className="pricing-column">
-            <h3>Alterations</h3>
+            <h3>Art & Embroidery</h3>
             <ul className="pricing-list">
-              <li><span>Hemming (Pants/Jeans)</span> <span className="price">$25</span></li>
-              <li><span>Jacket Sleeves</span> <span className="price">$45</span></li>
-              <li><span>Dress Resizing</span> <span className="price">from $75</span></li>
-              <li><span>Suit Tapering</span> <span className="price">from $60</span></li>
+              <li><span>Aari & Mirror Embroidery</span> <span className="price">Contact Us</span></li>
+              <li><span>Mural Fabric Painting</span> <span className="price">Contact Us</span></li>
+              <li><span>Glass Painting</span> <span className="price">Contact Us</span></li>
+              <li><span>Bridal Handwork</span> <span className="price">Contact Us</span></li>
             </ul>
           </div>
           <div className="pricing-column">
-            <h3>Consultations</h3>
+            <h3>Specialized Wear</h3>
             <ul className="pricing-list">
-              <li><span>Initial Fitting</span> <span className="price">Complimentary</span></li>
-              <li><span>Wardrobe Review</span> <span className="price">$150/hr</span></li>
-              <li><span>Rush Service (24h)</span> <span className="price">+50% fee</span></li>
+              <li><span>School Uniforms</span> <span className="price">Contact Us</span></li>
+              <li><span>Kids Wear</span> <span className="price">Contact Us</span></li>
+              <li><span>Custom Alterations</span> <span className="price">Contact Us</span></li>
             </ul>
           </div>
         </div>
